@@ -10,8 +10,21 @@ repositories {
     jcenter()
 }
 
-project.version = scmVersion.version
+scmVersion {
+    localOnly = true
+    useHighestVersion = true
 
+    tag {
+        prefix = 'doc'
+    }
+
+    repository {
+        pushTagsOnly = true
+    }
+}
+
+project.version = scmVersion.version
+// change
 dependencies {
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13'
